@@ -1,34 +1,27 @@
+#pragma once
+
 #define MACHINE_NAME "topscnc_heavy"
 
-#define USE_GANGED_AXES // allow two motors on an axis
+#define DEFAULT_HOMING_SQUARED_AXES  bit(Y_AXIS)
 
 #define X_STEP_PIN      GPIO_NUM_12
 #define X2_STEP_PIN     GPIO_NUM_22      // ganged motor
-//#define X_AXIS_SQUARING
-
 #define Y_STEP_PIN      GPIO_NUM_14
 #define Y2_STEP_PIN     GPIO_NUM_21     // ganged motor
-#define Y_AXIS_SQUARING
+
 
 #define Z_STEP_PIN      GPIO_NUM_27
 
 #define X_DIRECTION_PIN GPIO_NUM_26
 #define X2_DIRECTION_PIN X_DIRECTION_PIN
+
 #define Y_DIRECTION_PIN GPIO_NUM_25
 #define Y2_DIRECTION_PIN Y_DIRECTION_PIN
+
 #define Z_DIRECTION_PIN GPIO_NUM_33
 
 
-#define  HOMING_CYCLE_0 ( 1 << Z_AXIS) // OBLIGATOIRE: Déplacez d'abord Z pour dégager l'espace de travail.
-//# define  HOMING_CYCLE_1 (( 1 << X_AXIS) | ( 1 << Y_AXIS))   // X et Y ensemble
-#define  HOMING_CYCLE_1 ( 1 << X_AXIS)
-#define  HOMING_CYCLE_2 ( 1 << Y_AXIS)
-// OK to comment out to use pin for other features
-//#define STEPPERS_DISABLE_PIN GPIO_NUM_13
-
-// Note: if you use PWM rather than relay, you could map GPIO_NUM_2 to mist or flood
 #define USE_SPINDLE_RELAY
-
 #ifdef USE_SPINDLE_RELAY
     #define SPINDLE_TYPE SPINDLE_TYPE_RELAY
     #define SPINDLE_OUTPUT_PIN GPIO_NUM_2
@@ -89,7 +82,7 @@
 #define DEFAULT_HARD_LIMIT_ENABLE 0  // false
 
 #define DEFAULT_HOMING_ENABLE           1  // false
-//#define DEFAULT_HOMING_DIR_MASK         3 // move positive dir Z,negative X,Y
+#define DEFAULT_HOMING_DIR_MASK         0 // move positive dir Z,negative X,Y
 #define DEFAULT_HOMING_FEED_RATE        100.0 // mm/min
 #define DEFAULT_HOMING_SEEK_RATE        200.0 // mm/min
 #define DEFAULT_HOMING_DEBOUNCE_DELAY   250 // msec (0-65k)
