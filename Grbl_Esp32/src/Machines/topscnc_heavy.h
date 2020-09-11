@@ -83,8 +83,8 @@
 
 #define DEFAULT_HOMING_ENABLE           1  // false
 #define DEFAULT_HOMING_DIR_MASK         0 // move positive dir Z,positive X,Y
-#define DEFAULT_HOMING_FEED_RATE        100.0 // mm/min
-#define DEFAULT_HOMING_SEEK_RATE        200.0 // mm/min
+#define DEFAULT_HOMING_FEED_RATE        200.0 // mm/min
+#define DEFAULT_HOMING_SEEK_RATE        1500.0 // mm/min
 #define DEFAULT_HOMING_DEBOUNCE_DELAY   250 // msec (0-65k)
 #define DEFAULT_HOMING_PULLOFF          2.0 // mm
 
